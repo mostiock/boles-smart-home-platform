@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer base {
+  :root {
+    /* Boles Enterprise Color Scheme */
+    --background: 0 0% 100%;
+    --foreground: 214 45% 13%; /* #112137 */
+    --card: 0 0% 100%;
+    --card-foreground: 214 45% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 45% 13%;
+    --primary: 214 45% 13%; /* #112137 - Navy Blue */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 185 55% 51%; /* #43abc3 - Teal */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 13% 91%; /* #f2f4f7 */
+    --muted-foreground: 215 25% 56%; /* #8090af */
+    --accent: 185 55% 51%; /* #43abc3 - Teal */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 65% 51%; /* #a8454a */
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 76%; /* #c3c8cc */
+    --input: 220 13% 76%;
+    --ring: 185 55% 51%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 214 45% 13%;
+    --foreground: 0 0% 98%;
+    --card: 214 45% 13%;
+    --card-foreground: 0 0% 98%;
+    --popover: 214 45% 13%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 214 45% 13%;
+    --secondary: 185 55% 51%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 215 25% 28%;
+    --muted-foreground: 215 25% 76%;
+    --accent: 185 55% 51%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 65% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 25% 28%;
+    --input: 215 25% 28%;
+    --ring: 185 55% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  /* Boles Enterprise specific styles */
+  .boles-primary {
+    @apply bg-[#112137] text-white;
+  }
+
+  .boles-secondary {
+    @apply bg-[#43abc3] text-white;
+  }
+
+  .boles-bg-light {
+    @apply bg-[#f2f4f7];
+  }
+
+  .boles-text-muted {
+    @apply text-[#8090af];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+    @apply h-10 px-4 py-2;
+  }
+
+  .btn-primary {
+    @apply boles-primary hover:bg-[#1a2e4a];
+  }
+
+  .btn-secondary {
+    @apply boles-secondary hover:bg-[#3a9bb5];
+  }
+
+  .card-heading {
+    @apply text-lg font-semibold text-foreground mb-3;
+  }
+
+  .footer-btn {
+    @apply text-[#43abc3] hover:text-[#3a9bb5] font-medium transition-colors;
+  }
+}
