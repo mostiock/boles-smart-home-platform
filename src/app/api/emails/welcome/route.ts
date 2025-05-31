@@ -4,7 +4,7 @@ import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const { userId } = auth();
+    const { userId } = await auth();
 
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         message: "Welcome email sent successfully",
-        emailId: result.data?.id,
+        emailId: (result.data as { id?: string })?.id,
       });
     }
     return NextResponse.json(

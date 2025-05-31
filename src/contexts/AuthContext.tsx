@@ -1,6 +1,7 @@
 "use client";
 
 import { type User, db } from "@/lib/database";
+import { type PaymentMethod } from "@/types/user";
 import { useAuth as useClerkAuth, useUser } from "@clerk/nextjs";
 import {
   type ReactNode,
@@ -36,11 +37,14 @@ interface Order {
     zipCode: string;
     country: string;
   };
-  paymentMethod: {
-    type: string;
-    last4: string;
-    brand: string;
+  billingAddress: {
+    address1: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    country: string;
   };
+  paymentMethod: PaymentMethod;
 }
 
 interface WishlistItem {

@@ -3,10 +3,20 @@
 import { useAuth, useUser } from '@clerk/nextjs';
 import { useEffect, useState } from 'react';
 
+interface DebugInfo {
+  authLoaded: boolean;
+  userLoaded: boolean;
+  userId: string;
+  userEmail: string;
+  clerkVersion: string;
+  hostname: string;
+  protocol: string;
+}
+
 export function ClerkDebug() {
   const { isLoaded: authLoaded, userId } = useAuth();
   const { isLoaded: userLoaded, user } = useUser();
-  const [debugInfo, setDebugInfo] = useState<any>(null);
+  const [debugInfo, setDebugInfo] = useState<DebugInfo | null>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {

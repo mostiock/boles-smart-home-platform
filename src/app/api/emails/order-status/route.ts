@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         message: "Order status email sent successfully",
-        emailId: result.data?.id,
+        emailId: (result.data as { id?: string })?.id,
       });
     }
     return NextResponse.json(
