@@ -10,13 +10,13 @@ export async function getCurrentAuth() {
     const authResult = auth();
 
     // Check if it's a promise
-    if (authResult && typeof authResult.then === 'function') {
+    if (authResult && typeof authResult.then === "function") {
       return await authResult;
     }
 
     return authResult;
   } catch (error) {
-    console.error('Auth error:', error);
+    console.error("Auth error:", error);
     return { userId: null, user: null };
   }
 }

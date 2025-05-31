@@ -1,7 +1,7 @@
 "use client";
 
 import { type User, db } from "@/lib/database";
-import { type PaymentMethod } from "@/types/user";
+import type { PaymentMethod } from "@/types/user";
 import { useAuth as useClerkAuth, useUser } from "@clerk/nextjs";
 import {
   type ReactNode,

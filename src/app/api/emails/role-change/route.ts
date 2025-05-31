@@ -1,5 +1,9 @@
 import { db } from "@/lib/database";
-import { type UserEmailData, sendRoleChangeEmail, type EmailResponse } from "@/lib/email";
+import {
+  type EmailResponse,
+  type UserEmailData,
+  sendRoleChangeEmail,
+} from "@/lib/email";
 import { auth } from "@clerk/nextjs/server";
 import { type NextRequest, NextResponse } from "next/server";
 

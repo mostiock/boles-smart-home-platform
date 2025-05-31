@@ -1,5 +1,5 @@
 import { db } from "@/lib/database";
-import { sendOrderStatusEmail, type EmailResponse } from "@/lib/email";
+import { type EmailResponse, sendOrderStatusEmail } from "@/lib/email";
 import { auth } from "@clerk/nextjs/server";
 import { type NextRequest, NextResponse } from "next/server";
 

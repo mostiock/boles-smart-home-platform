@@ -253,7 +253,9 @@ const getRoleChangeEmailTemplate = (data: UserEmailData) => `
 `;
 
 // Email sending functions
-export async function sendOrderConfirmationEmail(data: OrderEmailData): Promise<EmailResponse> {
+export async function sendOrderConfirmationEmail(
+  data: OrderEmailData,
+): Promise<EmailResponse> {
   try {
     const result = await resend.emails.send({
       from: FROM_EMAIL,
@@ -270,7 +272,9 @@ export async function sendOrderConfirmationEmail(data: OrderEmailData): Promise<
   }
 }
 
-export async function sendWelcomeEmail(data: UserEmailData): Promise<EmailResponse> {
+export async function sendWelcomeEmail(
+  data: UserEmailData,
+): Promise<EmailResponse> {
   try {
     const result = await resend.emails.send({
       from: FROM_EMAIL,
@@ -287,7 +291,9 @@ export async function sendWelcomeEmail(data: UserEmailData): Promise<EmailRespon
   }
 }
 
-export async function sendRoleChangeEmail(data: UserEmailData): Promise<EmailResponse> {
+export async function sendRoleChangeEmail(
+  data: UserEmailData,
+): Promise<EmailResponse> {
   try {
     const result = await resend.emails.send({
       from: FROM_EMAIL,

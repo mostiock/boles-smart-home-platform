@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import { Button } from '@/components/ui/button'
-import { useEffect } from 'react'
+import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error('Application error:', error)
-  }, [error])
+    console.error("Application error:", error);
+  }, [error]);
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
@@ -44,12 +44,14 @@ export default function Error({
           </Button>
           <Button
             variant="outline"
-            onClick={() => window.location.href = '/'}
+            onClick={() => {
+              window.location.href = "/";
+            }}
           >
             Go home
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }

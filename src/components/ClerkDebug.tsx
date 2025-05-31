@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useAuth, useUser } from '@clerk/nextjs';
-import { useEffect, useState } from 'react';
+import { useAuth, useUser } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
 
 interface DebugInfo {
   authLoaded: boolean;
@@ -19,13 +19,13 @@ export function ClerkDebug() {
   const [debugInfo, setDebugInfo] = useState<DebugInfo | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setDebugInfo({
         authLoaded,
         userLoaded,
-        userId: userId || 'none',
-        userEmail: user?.primaryEmailAddress?.emailAddress || 'none',
-        clerkVersion: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.substring(0, 20) + '...',
+        userId: userId || "none",
+        userEmail: user?.primaryEmailAddress?.emailAddress || "none",
+        clerkVersion: `${process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.substring(0, 20)}...`,
         hostname: window.location.hostname,
         protocol: window.location.protocol,
       });
@@ -33,7 +33,7 @@ export function ClerkDebug() {
   }, [authLoaded, userLoaded, userId, user]);
 
   // Only show in development
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== "development") {
     return null;
   }
 
@@ -42,8 +42,8 @@ export function ClerkDebug() {
       <div className="font-bold mb-2">Clerk Debug Info:</div>
       {debugInfo && (
         <div className="space-y-1">
-          <div>Auth Loaded: {debugInfo.authLoaded ? '✅' : '❌'}</div>
-          <div>User Loaded: {debugInfo.userLoaded ? '✅' : '❌'}</div>
+          <div>Auth Loaded: {debugInfo.authLoaded ? "✅" : "❌"}</div>
+          <div>User Loaded: {debugInfo.userLoaded ? "✅" : "❌"}</div>
           <div>User ID: {debugInfo.userId}</div>
           <div>Email: {debugInfo.userEmail}</div>
           <div>Key: {debugInfo.clerkVersion}</div>

@@ -1,4 +1,8 @@
-import { type OrderEmailData, sendOrderConfirmationEmail, type EmailResponse } from "@/lib/email";
+import {
+  type EmailResponse,
+  type OrderEmailData,
+  sendOrderConfirmationEmail,
+} from "@/lib/email";
 import { auth } from "@clerk/nextjs/server";
 import { type NextRequest, NextResponse } from "next/server";
 

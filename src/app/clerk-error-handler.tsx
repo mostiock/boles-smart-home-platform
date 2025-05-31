@@ -1,20 +1,21 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export function ClerkErrorHandler() {
   useEffect(() => {
     // Handle Clerk-specific errors
     const handleClerkError = (event: ErrorEvent) => {
-      if (event.error && event.error.message) {
+      if (event.error?.message) {
         const errorMessage = event.error.message.toLowerCase();
 
         // Check for common Clerk errors
-        if (errorMessage.includes('clerk') ||
-            errorMessage.includes('authentication') ||
-            event.filename?.includes('clerk')) {
-
-          console.warn('Clerk error caught and handled:', event.error);
+        if (
+          errorMessage.includes("clerk") ||
+          errorMessage.includes("authentication") ||
+          event.filename?.includes("clerk")
+        ) {
+          console.warn("Clerk error caught and handled:", event.error);
 
           // Prevent the error from propagating
           event.preventDefault();
@@ -23,10 +24,10 @@ export function ClerkErrorHandler() {
       }
     };
 
-    window.addEventListener('error', handleClerkError);
+    window.addEventListener("error", handleClerkError);
 
     return () => {
-      window.removeEventListener('error', handleClerkError);
+      window.removeEventListener("error", handleClerkError);
     };
   }, []);
 
